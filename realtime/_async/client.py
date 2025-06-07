@@ -190,7 +190,7 @@ class AsyncRealtimeClient:
         await self._flush_send_buffer()
 
     async def _on_connect_error(self, e: Exception) -> None:
-        if isinstance(e, websockets.exceptions.ConnectionClosedError):
+        if isinstance(e, websockets.exceptions.ConnectionClosed):
             logger.error(
                 f"WebSocket connection closed with code: {e.code}, reason: {e.reason}"
             )
